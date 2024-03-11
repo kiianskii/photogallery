@@ -38,3 +38,25 @@ body {
   margin: 0;
   padding: 36px 24px;
 }
+
+.load-button {
+  padding: 8px 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #4e75ff;
+  color: white;
+
+  font-weight: 500;
+}
+.load-button:hover,
+.load-button:focus {
+  background-color: #6c8cff;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

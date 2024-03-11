@@ -1,6 +1,6 @@
 import { getImages } from "./js/pixabay-API";
 import { renderImages, clearMarkup } from "./js/render-functions";
-import { showLoader, hideLoader, showMessage } from "./js/modules/helpers";
+import { showLoader, hideLoader, showMessage, showLoadBtn, hideLoadBtn, loadBtn } from "./js/modules/helpers";
 
 const formEl = document.querySelector(".search-form")
 
@@ -9,7 +9,7 @@ const msgEmpty = "Error, empty field";
 
 formEl.addEventListener("submit", onSubmitBtn);
 
-function onSubmitBtn(e){
+async function onSubmitBtn(e){
     e.preventDefault();
     showLoader();
     clearMarkup();
@@ -22,16 +22,20 @@ function onSubmitBtn(e){
         hideLoader()
         return;
     }
-    getImages(userWord).then(res => {
-        if (res.data.hits.length === 0) {
+
+    try {
+    const result = await getImages(userWord)
+        if (result.data.hits.length === 0) {
             hideLoader();
             showMessage(msgErr);
         } else {
-            renderImages(res.data.hits)
-        }
-    }).catch(console.log).finally(() => {
+            renderImages(result.data.hits)
+        }    
         hideLoader()
-    })
+    } catch {
+        console.log(result)
+        hideLoader()
+    }
 
     e.target.reset()
 };

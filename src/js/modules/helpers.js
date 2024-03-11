@@ -4,18 +4,15 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const loader = document.querySelector(".loader")
+export const loadBtn = document.querySelector(".load-button")
 
 
-    
-
-
-export function showLoader(container) {
+export function showLoader() {
     loader.classList.remove("is-hide")
 }
 
-export function hideLoader(container) {
+export function hideLoader() {
     loader.classList.add("is-hide")
-
 }
 export function showMessage(message) {
     const msgOptions = {
@@ -34,5 +31,10 @@ export function showMessage(message) {
     iziToast.show(msgOptions);
 }
 
+export function showLoadBtn() {
+    loadBtn.classList.remove("is-hide")
+}
 
-
+export function hideLoadBtn() {
+    loadBtn.classList.add("is-hide")
+}
