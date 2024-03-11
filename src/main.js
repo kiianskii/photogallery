@@ -23,12 +23,11 @@ function onSubmitBtn(e){
         return;
     }
     getImages(userWord).then(res => {
-
-        if (res.hits.length === 0) {
+        if (res.data.hits.length === 0) {
             hideLoader();
             showMessage(msgErr);
         } else {
-            renderImages(res.hits)
+            renderImages(res.data.hits)
         }
     }).catch(console.log).finally(() => {
         hideLoader()
