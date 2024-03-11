@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 
 export function getImages(userValue) {
   const BASE_URL = 'https://pixabay.com/';

@@ -12,7 +12,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
 
 export function renderImages(arr) {
   const markup = renderMarkup(arr);
-    gallery.innerHTML = markup;
+    gallery.insertAdjacentHTML("beforeend", markup);
     lightbox.refresh();
 }
 
