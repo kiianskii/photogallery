@@ -8,7 +8,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 
 
- const gallery = document.querySelector(".gallery")
+ export const gallery = document.querySelector(".gallery")
 
 export function renderImages(arr) {
   const markup = renderMarkup(arr);

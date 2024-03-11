@@ -38,3 +38,4 @@ export function showLoadBtn() {
 export function hideLoadBtn() {
     loadBtn.classList.add("is-hide")
 }
+
