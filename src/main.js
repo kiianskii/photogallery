@@ -12,7 +12,7 @@ const msgErr = "Sorry, there are no images matching your search query. Please tr
 const msgEmpty = "Error, empty field";
 const msgEndLoad = "We're sorry, but you've reached the end of search results."
 
-let page = 1;
+let page;
 let userWord;
 const per_page = 15;
 
@@ -22,7 +22,7 @@ async function onSubmitBtn(e){
     showLoader();
     clearMarkup();
     hideLoadBtn()
-
+    page = 1;
     const userValue = e.target.elements.data.value.trim().split(" ")
     userWord = userValue.filter(word => word).join('+');
     if (!userWord) {
