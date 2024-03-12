@@ -1,6 +1,6 @@
 import { getImages } from "./js/pixabay-API";
 import { renderImages, clearMarkup, gallery } from "./js/render-functions";
-import { showLoader, hideLoader, showMessage, showLoadBtn, hideLoadBtn, loadBtn } from "./js/modules/helpers";
+import { showLoader, hideLoader, showMessage, showLoadBtn, hideLoadBtn, loadBtn,showLoadMsg } from "./js/modules/helpers";
 
 const formEl = document.querySelector(".search-form")
 
@@ -67,7 +67,7 @@ async function onLoadBtn() {
         forScroll()
         if (lastPage === page) {
             hideLoadBtn();
-           showMessage(msgEndLoad)
+           showLoadMsg(msgEndLoad)
         }
         hideLoader()
          } catch (err) {

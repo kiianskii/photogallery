@@ -39,4 +39,20 @@ export function hideLoadBtn() {
     loadBtn.classList.add("is-hide")
 }
 
+export function showLoadMsg(message) {
+    const msgOptions = {
+        message,
+        messageSize: '16px',
+        messageLineHeight: '24px',
+        messageColor: '#000000',
+
+        backgroundColor: '#F5F5DC',
+        progressBarColor: '#5F9EA0',
+
+        theme: 'dark',
+        position: 'topRight',
+        class: 'message',
+    };
+    iziToast.show(msgOptions);
+}
 
