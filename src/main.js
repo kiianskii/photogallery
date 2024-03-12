@@ -34,6 +34,7 @@ async function onSubmitBtn(e){
 
     try {
     const result = await getImages(userWord, page)
+         
         if (result.data.hits.length === 0) {
             hideLoader();
             showMessage(msgErr);
@@ -43,6 +44,10 @@ async function onSubmitBtn(e){
         }    
         hideLoader()
        
+         if (result.data.totalHits <= per_page) { 
+            hideLoadBtn()
+        }
+
     } catch {
         console.log(result)
         hideLoader()
