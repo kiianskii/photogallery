@@ -3,7 +3,7 @@ import { renderImages, clearMarkup, gallery } from "./js/render-functions";
 import { showLoader, hideLoader, showMessage, showLoadBtn, hideLoadBtn, loadBtn } from "./js/modules/helpers";
 
 const formEl = document.querySelector(".search-form")
-const imgCard = gallery.querySelector(".gallery-item")
+
 
 formEl.addEventListener("submit", onSubmitBtn);
 loadBtn.addEventListener("click", onLoadBtn)
@@ -64,7 +64,7 @@ async function onLoadBtn() {
         const res = await getImages(userWord, page)
         const lastPage = Math.ceil(res.data.totalHits / per_page);
         renderImages(res.data.hits);
-
+        forScroll()
         if (lastPage === page) {
             hideLoadBtn();
            showMessage(msgEndLoad)
@@ -74,7 +74,12 @@ async function onLoadBtn() {
         console.log(err)
         hideLoader()
         }
-
-
 }
  
+function forScroll() {
+    const height = gallery.firstElementChild.getBoundingClientRect().height * 2;
+    window.scrollBy({
+        "behavior": "smooth",
+        "top": height,
+    })
+}
